@@ -9,6 +9,7 @@
 
 
 import sys
+import re
 
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import (
@@ -114,30 +115,33 @@ class App(QWidget):
         if not current_text:
             return
         
-        last_char = current_text[-1]
+        current_text += "%"  # Добавляем символ %
+        self.input_line.setText(current_text)
 
-        if last_char in "+-":
-            # Сложение или вычитание
-            left_operand = float(current_text[:-1]) if current_text[:-1] else 0
-            percent_value = left_operand * 0.01
-            self.input_line.setText(str(percent_value))
-        elif last_char in "×/":
-            # Умножение или деление
-            left_operand = float(current_text[:-1]) if current_text[:-1] else 0
-            percent_value = left_operand / 100
-            self.input_line.setText(str(percent_value))
-        else:
-            # Просто число
-            try:
-                number = float(current_text)
-                percent_value = number / 100
-                self.input_line.setText(str(percent_value))
-            except ValueError:
-                self.input_line.setText("Ошибка")
 
 
     def calculate_result(self):
         try:
+            current_text = self.input_line.text()
+            # Ищем числа с символом `%`, с корректной заменой
+            pattern = r'(\d+(\.\d+)?)%'
+            matches = re.finditer(pattern, current_text)
+
+            for match in matches:
+                # Значение процента (преобразуем 10% в 0.1)
+                percentage_value = float(match.group(1)) / 100
+                # Находим позицию процента в выражении
+                start, end = match.span()
+
+                # Проверяем предыдущее выражение
+                before = current_text[:start].rstrip(" ")
+                if before and before[-1].isdigit():
+                    # Если до процента есть число, умножаем на процент
+                    expression = current_text[:start] + f"* {percentage_value}" + current_text[end:]
+                else:
+                    # Иначе просто добавляем процентное значение
+                    current_text = current_text[:start] + f"{percentage_value}" + current_text[end:]
+
             result = eval(self.input_line.text().replace('×', '*'))  # Заменяем '×' на '*'
             self.input_line.setText(str(result))  # Отображаем результат
         except Exception as e:

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Колледж Современных Технологий - Официальный сайт</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #0056b3;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo img {
+            height: 80px;
+            margin-right: 15px;
+        }
+
+        nav {
+            background: #003d7a;
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #0056b3;
+        }
+
+        .about {
+            background: #f9f9f9;
+        }
+
+        .programs {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .program-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-card h3 {
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+
+        .contacts {
+            background: #f9f9f9;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-card {
+            text-align: center;
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #0056b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background: #003d7a;
+        }
+
+        footer {
+            background: #003d7a;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .hero {
+                height: 300px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/80" alt="Логотип колледжа">
+            <div>
+                <h1>Колледж Современных Технологий</h1>
+                <p>Образование для успешного будущего</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#about">О колледже</a></li>
+            <li><a href="#programs">Направления обучения</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+            <li><a href="#feedback">Обратная связь</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Добро пожаловать в Колледж Современных Технологий</h2>
+            <p>Мы готовим специалистов, востребованных на современном рынке труда</p>
+            <button>Подать заявку</button>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>О нашем колледже</h2>
+            <p>Колледж Современных Технологий - это современное образовательное учреждение, которое уже более 20 лет
+                готовит квалифицированных специалистов в различных областях. Наш колледж сочетает в себе богатые
+                традиции образования и инновационные подходы к обучению.</p>
+            <p>Мы предлагаем:</p>
+            <ul>
+                <li>Современные учебные программы, соответствующие требованиям работодателей</li>
+                <li>Высококвалифицированный преподавательский состав</li>
+                <li>Отличную материально-техническую базу</li>
+                <li>Возможности для практики и трудоустройства</li>
+                <li>Комфортные условия обучения</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="programs-section" id="programs">
+        <div class="container">
+            <h2>Направления обучения</h2>
+            <div class="programs">
+                <div class="program-card">
+                    <h3>Информационные технологии</h3>
+                    <p>Программирование, веб-разработка, кибербезопасность, администрирование сетей</p>
+                    <p>Срок обучения: 2 года 10 месяцев</p>
+                </div>
+                <div class="program-card">
+                    <h3>Экономика и бухгалтерский учет</h3>
+                    <p>Бухгалтерский учет, анализ и аудит, финансы и кредит</p>
+                    <p>Срок обучения: 1 год 10 месяцев</p>
+                </div>
+                <div class="program-card">
+                    <h3>Графический дизайн</h3>
+                    <p>Веб-дизайн, полиграфия, 3D-моделирование, анимация</p>
+                    <p>Срок обучения: 2 года 10 месяцев</p>
+                </div>
+                <div class="program-card">
+                    <h3>Туризм и гостиничный сервис</h3>
+                    <p>Организация туристической деятельности, гостиничный менеджмент</p>
+                    <p>Срок обучения: 1 год 10 месяцев</p>
+                </div>
+                <div class="program-card">
+                    <h3>Право и организация социального обеспечения</h3>
+                    <p>Юридическое сопровождение деятельности организации</p>
+                    <p>Срок обучения: 1 год 10 месяцев</p>
+                </div>
+                <div class="program-card">
+                    <h3>Дошкольное образование</h3>
+                    <p>Воспитание и обучение детей дошкольного возраста</p>
+                    <p>Срок обучения: 2 года 10 месяцев</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Адрес</h3>
+                    <p>г. Москва, ул. Образцова, д. 123</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Телефон</h3>
+                    <p>+7 (495) 123-45-67</p>
+                    <p>+7 (495) 765-43-21</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@college-tech.ru</p>
+                    <p>admission@college-tech.ru</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feedback">
+        <div class="container">
+            <h2>Обратная связь</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Колледж Современных Технологий. Все права защищены.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-vk"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
